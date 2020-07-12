@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Button from "./components/Button";
+import { appInsights } from './config/appInsights';
 import "./assets/css/style.css";
 
 export default class App extends Component {
@@ -14,12 +15,18 @@ export default class App extends Component {
     this.setState({
       count: this.state.count + 1
     });
+
+    // appInsights.trackEvent({ name: "incrementCount" });
+    // appInsights.flush();
   };
 
   decrementCount = () => {
     this.setState({
       count: this.state.count - 1
     });
+    
+    // appInsights.trackEvent({ name: "decrementCount" });
+    // appInsights.flush();
   };
 
   render() {
